@@ -55,7 +55,6 @@ header {
 
 h1.header-logo {
   position: absolute;
-  top: 50%;
   left: 13%;
   transform: translate(-50%, -50%);
   font-size: 45px;
@@ -67,6 +66,17 @@ h1.header-logo {
 .nav-item a {
   font-size: 18px;
   font-weight: 500;
+  color: rgb(22, 22, 22);
+}
+
+.nav-item a:hover {
+  color: dodgerblue !important;
+}
+
+.active {
+  font-size: 20px;
+  font-weight: 700 !important;
+  color: dodgerblue !important;
 }
 
 @media screen and (max-width: 500px) {

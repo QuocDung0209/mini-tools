@@ -1,0 +1,32 @@
+<div class="row justify-content-center align-items-center mt-4 mx-3">
+  <div class="col-lg-8">
+    <div class="badge bg-primary p-2 mb-2">UNHIGHLIGHTED CODE</div>
+    <textarea [placeholder]="placeholder" class="form-control" id="code-area" name="code-area" rows="7"
+      [(ngModel)]="content"></textarea>
+  </div>
+  <div class="col-lg-4">
+    <div class="badge bg-primary p-2 mb-3">OPTIONS</div>
+    <div class="fw-bold">Language</div>
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="auto"
+        [(ngModel)]="languageSelected">
+      <label class="form-check-label" for="inlineRadio1">Auto Detect</label>
+    </div>
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="javascript"
+        [(ngModel)]="languageSelected">
+      <label class="form-check-label" for="inlineRadio2">Select One</label>
+    </div>
+    <ng-template [ngIf]="languageSelected !== 'auto'">
+      <div class="fw-bold">Select Language</div>
+      <select class="form-select language-selection" [(ngModel)]="languageSelected">
+        <option *ngFor="let item of languages" [value]="item.code">{{item.name}}</option>
+      </select>
+    </ng-template>
+    <div><button class="btn btn-primary mt-3" (click)="highlight()">Highlight Code</button></div>
+  </div>
+  <div class="col-12 position-relative mt-3">
+    <pre *ngIf="codeHighlighted !== ''"
+      style='background-color: #1b1b1b; border-radius: 5px; box-sizing: border-box; max-height: 310px; color: #a9b7c6; font-family: "JetBrains Mono", monospace; font-size: 9.8pt; hyphens: none; line-height: 1.5em; margin: 25px auto; overflow: auto; padding: 20px; position: relative; tab-size: 2;'><code [innerHTML]="codeHighlighted"></code></pre>
+  </div>
+</div>
