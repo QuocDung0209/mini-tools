@@ -1,1 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
+body {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 14px;
+  color: #48525c;
+  background-color: #fafafc;
+  -webkit-font-smoothing: antialiased;
+}
