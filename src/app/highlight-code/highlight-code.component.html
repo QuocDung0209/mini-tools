@@ -1,7 +1,13 @@
 <div class="row justify-content-center align-items-center mt-4 mx-3">
   <div class="col-lg-8">
-    <div class="badge bg-primary p-2 mb-2">UNHIGHLIGHTED CODE</div>
-    <textarea [placeholder]="placeholder" class="form-control" id="code-area" name="code-area" rows="7"
+    <div class="d-flex flex-row justify-content-between align-items-center mb-2">
+      <div class="badge bg-primary p-2">UNHIGHLIGHTED CODE</div>
+      <div>
+        <button class="btn btn-sm btn-success me-3" (click)="unhighlighted.focus();unhighlighted.select()">Select All</button>
+        <button class="btn btn-sm btn-danger" (click)="clear()">Clear</button>
+      </div>
+    </div>
+    <textarea #unhighlighted [placeholder]="placeholder" class="form-control" id="code-area" name="code-area" rows="7"
       [(ngModel)]="content"></textarea>
   </div>
   <div class="col-lg-4">

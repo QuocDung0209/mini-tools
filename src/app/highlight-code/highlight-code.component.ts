@@ -20,6 +20,10 @@ export class HighlightCodeComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  clear() {
+    this.content = EMPTY_STRING;
+  }
+
   highlight() {
     if (this.languageSelected === 'auto') {
       this.codeHighlighted = hljs.highlightAuto(this.content).value;
