@@ -44,7 +44,7 @@ export class HighlightCodeComponent implements OnInit {
   // Copy text from any element
   copyTextToClipboard(htmlEl: any) {
     const el = document.createElement('textarea');
-    el.value = htmlEl.innerText;
+    el.value = htmlEl.innerHTML;
     el.setAttribute('readonly', '');
     el.style.position = 'absolute';
     el.style.left = '-9999px';
