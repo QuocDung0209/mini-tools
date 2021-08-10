@@ -32,4 +32,26 @@ export class HighlightCodeComponent implements OnInit {
     }
   }
 
+  copyToClipboard(el: any) {
+    const range = document.createRange();
+    range.selectNodeContents(el);
+    const sel = window.getSelection();
+    sel && sel.removeAllRanges();
+    sel && sel.addRange(range);
+    document.execCommand('copy');
+  }
+
+  // Copy text from any element
+  copyTextToClipboard(htmlEl: any) {
+    const el = document.createElement('textarea');
+    el.value = htmlEl.innerText;
+    el.setAttribute('readonly', '');
+    el.style.position = 'absolute';
+    el.style.left = '-9999px';
+    document.body.appendChild(el);
+    el.select();
+    document.execCommand('copy');
+    document.body.removeChild(el);
+  }
+
 }

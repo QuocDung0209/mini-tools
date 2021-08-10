@@ -7,3 +7,17 @@ textarea {
   font-size: 14px;
   padding: 4px 0;
 }
+
+button.btn.btn-sm.btn-outline-primary.copy-to-clipboard {
+  position: absolute;
+  top: 40px;
+  right: 25px;
+  z-index: 10;
+  color: white;
+  border-color: white;
+  font-weight: 500;
+}
+
+button.btn.btn-sm.btn-outline-primary.copy-to-clipboard.copy-for-blogger {
+  right: 120px;
+}
