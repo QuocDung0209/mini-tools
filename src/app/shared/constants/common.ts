@@ -1,6 +1,8 @@
 export const EMPTY_STRING = '';
 
-export const AUTO_DETECT_LANGUAGE = 'auto'
+export const AUTO_DETECT_LANGUAGE = 'auto';
+
+export const DEFAULT_LANGUAGE = 'javascript';
 
 export const LANGUAGE_SUPPORTED = [
   {

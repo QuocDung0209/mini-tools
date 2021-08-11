@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AUTO_DETECT_LANGUAGE, EMPTY_STRING, LANGUAGE_SUPPORTED } from '../shared/constants/common';
+import { AUTO_DETECT_LANGUAGE, DEFAULT_LANGUAGE, EMPTY_STRING, LANGUAGE_SUPPORTED } from '../shared/constants/common';
 import hljs from 'highlight.js';
 import { TEXTAREA_HIGHLIGHTER } from '../shared/constants/placeholder';
 import { COPIED, COPY_TO_CLIPBOARD } from '../shared/constants/tooltip';
@@ -17,6 +17,7 @@ export class HighlightCodeComponent implements OnInit {
   languageSelected = AUTO_DETECT_LANGUAGE;
   copyBloggerTooltip = COPY_TO_CLIPBOARD;
   copyCodeTooltip = COPY_TO_CLIPBOARD;
+  languageChecked = AUTO_DETECT_LANGUAGE;
 
   constructor() { }
 
@@ -25,6 +26,11 @@ export class HighlightCodeComponent implements OnInit {
 
   clear() {
     this.content = EMPTY_STRING;
+  }
+
+  languageChange(selected: string) {
+    this.languageChecked = selected;
+    this.languageSelected = selected === AUTO_DETECT_LANGUAGE ? AUTO_DETECT_LANGUAGE : DEFAULT_LANGUAGE;
   }
 
   highlight() {

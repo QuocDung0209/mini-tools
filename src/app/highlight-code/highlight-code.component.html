@@ -16,15 +16,15 @@
     <div class="fw-bold">Language</div>
     <div class="form-check form-check-inline">
       <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="auto"
-        [(ngModel)]="languageSelected">
+        [ngModel]="languageChecked" (ngModelChange)="languageChange('auto')">
       <label class="form-check-label" for="inlineRadio1">Auto Detect</label>
     </div>
     <div class="form-check form-check-inline">
-      <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="javascript"
-        [(ngModel)]="languageSelected">
+      <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="one"
+        [ngModel]="languageChecked" (ngModelChange)="languageChange('one')">
       <label class="form-check-label" for="inlineRadio2">Select One</label>
     </div>
-    <ng-template [ngIf]="languageSelected !== 'auto'">
+    <ng-template [ngIf]="languageChecked === 'one'">
       <div class="fw-bold">Select Language</div>
       <select class="form-select language-selection" [(ngModel)]="languageSelected">
         <option *ngFor="let item of languages" [value]="item.code">{{item.name}}</option>
