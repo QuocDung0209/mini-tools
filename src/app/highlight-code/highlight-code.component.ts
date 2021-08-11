@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AUTO_DETECT_LANGUAGE, EMPTY_STRING, LANGUAGE_SUPPORTED } from '../shared/constants/common';
 import hljs from 'highlight.js';
 import { TEXTAREA_HIGHLIGHTER } from '../shared/constants/placeholder';
+import { COPIED, COPY_TO_CLIPBOARD } from '../shared/constants/tooltip';
 
 @Component({
   selector: 'app-highlight-code',
@@ -14,6 +15,8 @@ export class HighlightCodeComponent implements OnInit {
   placeholder = TEXTAREA_HIGHLIGHTER;
   languages = LANGUAGE_SUPPORTED;
   languageSelected = AUTO_DETECT_LANGUAGE;
+  copyBloggerTooltip = COPY_TO_CLIPBOARD;
+  copyCodeTooltip = COPY_TO_CLIPBOARD;
 
   constructor() { }
 
@@ -25,6 +28,8 @@ export class HighlightCodeComponent implements OnInit {
   }
 
   highlight() {
+    this.copyBloggerTooltip = COPY_TO_CLIPBOARD;
+    this.copyCodeTooltip = COPY_TO_CLIPBOARD;
     if (this.languageSelected === 'auto') {
       this.codeHighlighted = hljs.highlightAuto(this.content).value;
     } else {
@@ -39,6 +44,7 @@ export class HighlightCodeComponent implements OnInit {
     sel && sel.removeAllRanges();
     sel && sel.addRange(range);
     document.execCommand('copy');
+    this.copyBloggerTooltip = COPIED;
   }
 
   // Copy text from any element
@@ -52,6 +58,7 @@ export class HighlightCodeComponent implements OnInit {
     el.select();
     document.execCommand('copy');
     document.body.removeChild(el);
+    this.copyCodeTooltip = COPIED;
   }
 
 }

@@ -34,9 +34,9 @@
     </div>
   </div>
   <div class="col-12 position-relative mt-3" *ngIf="codeHighlighted !== ''">
-    <button class="btn btn-sm btn-success copy-to-clipboard copy-for-blogger" title="Copy to clipboard"
+    <button class="btn btn-sm btn-success copy-to-clipboard copy-for-blogger" [title]="copyBloggerTooltip"
       (click)="copyToClipboard(highlightedCodePreview)">Copy for Blogger</button>
-    <button class="btn btn-sm btn-success copy-to-clipboard" title="Copy to clipboard"
+    <button class="btn btn-sm btn-success copy-to-clipboard" [title]="copyCodeTooltip"
       (click)="copyTextToClipboard(highlightedCode)">Copy Highlighted Code</button>
     <div #highlightedCode>
       <pre #highlightedCodePreview
