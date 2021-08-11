@@ -37,6 +37,7 @@ export class HighlightCodeComponent implements OnInit {
     }
   }
 
+  // Copy element with current format and style css
   copyToClipboard(el: any) {
     const range = document.createRange();
     range.selectNodeContents(el);
