@@ -18,6 +18,7 @@ export class HighlightCodeComponent implements OnInit {
   copyBloggerTooltip = COPY_TO_CLIPBOARD;
   copyCodeTooltip = COPY_TO_CLIPBOARD;
   languageChecked = AUTO_DETECT_LANGUAGE;
+  fileName = EMPTY_STRING;
 
   constructor() { }
 

@@ -26,11 +26,18 @@
     </div>
     <ng-template [ngIf]="languageChecked === 'one'">
       <div class="fw-bold">Select Language</div>
-      <select class="form-select language-selection" [(ngModel)]="languageSelected">
+      <select class="form-select form-select-sm language-selection mt-2" [(ngModel)]="languageSelected">
         <option *ngFor="let item of languages" [value]="item.code">{{item.name}}</option>
       </select>
     </ng-template>
-    <div><button class="btn btn-primary mt-3" (click)="highlight()" [disabled]="!content">Highlight Code</button>
+    <div class="d-flex flex-row justify-content-between align-items-center mt-3">
+      <div class="input-group input-group-sm" id="filename">
+        <span for="filename" class="input-group-text">File Name</span>
+        <input class="form-control" type="text" name="filename" [(ngModel)]="fileName">
+        <button class="btn btn-outline-secondary" type="button" (click)="fileName = ''">Clear</button>
+      </div>
+      <div><button class="btn btn-sm btn-primary" (click)="highlight()" [disabled]="!content">Highlight Code</button>
+      </div>
     </div>
   </div>
   <div class="col-12 position-relative mt-3" *ngIf="codeHighlighted !== ''">
@@ -40,7 +47,8 @@
       (click)="copyTextToClipboard(highlightedCode)">Copy Highlighted Code</button>
     <div #highlightedCode>
       <pre #highlightedCodePreview
-        style='background-color: #1b1b1b; border-radius: 5px; box-sizing: border-box; max-height: 310px; color: #a9b7c6; font-family: "JetBrains Mono", monospace; font-size: 9.8pt; hyphens: none; line-height: 1.5em; margin: 25px auto; overflow: auto; padding: 20px; position: relative; tab-size: 2;'><code [innerHTML]="codeHighlighted"></code></pre>
+        style='background-color: #1b1b1b; border-radius: 5px; box-sizing: border-box; max-height: 310px; color: #a9b7c6; font-family: "JetBrains Mono", monospace; font-size: 9.8pt; hyphens: none; line-height: 1.5em; margin: 25px auto; overflow: auto; padding: 20px; position: relative; tab-size: 2;'><span style="background-color: white; color: indigo; font-size: 16px; font-weight: 700; padding: 2px 6px; border: 1px solid #cccccc; border-radius: 3px; position: absolute; top: -7px;"
+        >{{fileName}}</span><code [innerHTML]="codeHighlighted"></code></pre>
     </div>
   </div>
 </div>
